@@ -8,7 +8,7 @@ function MainView() {
   //const viewHtml = '<div><h1>Welcome to the Main View</h1></div>'
 
   const viewHtml =ShowHeader();
-
+  
   return (viewHtml);
 
   //  return (

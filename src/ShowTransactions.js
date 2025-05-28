@@ -8,21 +8,25 @@ function ShowTransactions(props)
     const queryStr = `http://localhost:5065/HomeBudget/CostListByDateRange?fromDate=${props.FromDate}&toDate=${props.ToDate}`;
 
     console.log("queryStr is " + queryStr);
+    console.log("showDatesHeader is " + showDatesHeader);
 
-    return showDatesHeader;
+    fetch(queryStr)
+     .then(response => {
+         if (!response.ok) throw new Error("Failed to retrieve ");
 
-    // fetch(queryStr)
-    // .then(response => {
-    //     if (!response.ok) throw new Error("Failed to retrieve ");
-    //     return response.json();
-    // })
-    // .then(tranactionList => {           
-    //     renderList(tranactionList);
-    // })
-    // .catch(error => {
-    //     document.getElementById("status").textContent = "Error: " + error.message;
-    // });
+         console.log("response is " + response);
+         return response.json();
+     })
+     .then(tranactionList => {           
+         //renderList(tranactionList);
+        console.log("tranactionList is " + tranactionList);
+     })
+    .catch(error => {
+         //document.getElementById("status").textContent = "Error: " + error.message;
+         console.error("Error fetching data:", error);
+     });
 
+    
 }
 
 function ShowDates(props)
