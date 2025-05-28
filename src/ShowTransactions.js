@@ -18,7 +18,7 @@ function ShowTransactions(props)
          return response.json();
      })
      .then(tranactionList => {           
-         //renderList(tranactionList);
+         renderList(tranactionList);
         console.log("tranactionList is " + tranactionList);
      })
     .catch(error => {
@@ -39,5 +39,28 @@ function ShowDates(props)
         </div>
     );
 }
+
+    function renderList(tranactionList) {
+      //const tbody = document.getElementById('costTableBody');
+      //tbody.innerHTML = ''; // Clear any old rows
+
+       tranactionList.forEach(transaction => {
+
+         console.log("renderList " + transaction.posted_Date);
+         console.log("renderList " + transaction.costCategory);
+
+    //     const row = document.createElement('tr');
+
+    //     row.innerHTML = `<td>${transaction.posted_Date}</td><td>&nbsp;&nbsp;</td>
+    //       <td>${transaction.costCategory}</td><td>&nbsp;&nbsp;</td>
+    //       <td>${transaction.savingsCategory}</td><td>&nbsp;&nbsp;</td>
+    //       <td>${transaction.description}</td><td>&nbsp;&nbsp;</td>
+    //       <td>${transaction.amount}</td>`
+    //     tbody.appendChild(row);
+       });
+     
+    }
+
+
 
 export default ShowTransactions;
