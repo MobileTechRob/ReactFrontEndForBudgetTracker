@@ -1,18 +1,45 @@
 // Login.jsx
 import React, { useState } from 'react';
 
-function Login({ onLogin }) {
+function Login({ onLogin }) 
+{
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Replace with real auth logic
-    if (username === 'user' && password === 'pass') {
-      onLogin();
-    } else {
-      alert('Invalid credentials');
-    }
+
+    const handleSubmit = async (e) => {
+      console.log('handleSubmit called');
+      
+      e.preventDefault();
+
+      console.log(`Username: ${username}, Password: ${password}`);
+      
+
+      var url = `http://localhost:5065/HomeBudget/VerifyUser?username=${username}&password=${password}`;
+      console.log(`URL: ${url}`);
+
+      try {
+        const response = await fetch(`${url}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        if (response.ok) {
+          onLogin();
+        } else {
+          alert('Invalid credentials');
+        }
+      } catch (error) {
+        alert('Error logging in ' + error );
+      }
+    };
+
+    return handleSubmit(e);
   };
 
   return (

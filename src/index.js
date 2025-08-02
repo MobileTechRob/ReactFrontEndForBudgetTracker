@@ -15,15 +15,15 @@ import ShowTransactions from './ShowTransactions';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
     <AppWithLogin />
-    <RecipeApp />
+    {/* <RecipeApp />
     <RecipeApp_2 />
     <RecipeApp_DynamicText />
-    <MyButton />
-    <MyButton_with_message message="Hello, this is a message!" />
-    <MyButton_with_message />
-    <ShowTransactions  FromDate="2025-10-10" ToDate="2025-12-12"/>
+    <MyButton /> */}
+    {/* <MyButton_with_message message="Hello, this is a message!" /> */}
+    {/* <MyButton_with_message /> */}
+    {/* <ShowTransactions  FromDate="2025-10-10" ToDate="2025-12-12"/> */}
   </React.StrictMode>
 );
 
