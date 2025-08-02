@@ -5,7 +5,7 @@ function ShowTransactions(props)
 
     // const [transactions, setTransactions] = useState([]);
     
-    const queryStr = `http://localhost:5065/HomeBudget/CostListByDateRange?fromDate=${props.FromDate}&toDate=${props.ToDate}`;
+    const queryStr = `/HomeBudget/CostListByDateRange?fromDate=${props.FromDate}&toDate=${props.ToDate}`;
 
     console.log("queryStr is " + queryStr);
     console.log("showDatesHeader is " + showDatesHeader);
